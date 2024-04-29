@@ -535,3 +535,10 @@ input#submit:hover{
 #footer p{
     margin: 1.4em 0;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
