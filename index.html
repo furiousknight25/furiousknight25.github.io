@@ -20,10 +20,33 @@
     
 	<!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
-	
-    
+    <script>
+function checkIframeLoaded() {
+    // Get a handle to the iframe element
+    var iframe = document.getElementById('i_frame');
+    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+    // Check if loading is complete
+    if (  iframeDoc.readyState  == 'complete' ) {
+        //iframe.contentWindow.alert("Hello");
+        iframe.contentWindow.onload = function(){
+            alert("I am loaded");
+        };
+        // The loading is complete, call the function we want executed once the iframe is loaded
+        afterLoading();
+        return;
+    } 
+
+    // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
+    window.setTimeout(checkIframeLoaded, 100);
+}
+
+function afterLoading(){
+    window.scrollTo(0,0);
+}
+    </script>
 </head>
-<body  dark_mode="no" font_family="serif">
+<body  dark_mode="no" font_family="serif" onload="checkIframeLoaded();">
 
 <!-- EVERYTHING TO THE LEFT of the sidebar... -->
 <div id="everything_container">
@@ -60,6 +83,9 @@
 	<article id="content" style="font-size: 19px;">
         <p><em>(reading time: few seconds to check if its working)</em></p>
         <h1>Introduction</h1>
+        <p>Before this paper starts, I want to thank all of my peers who were willing to let me "teach them programming".
+            I learned so much from this experience and I am forever grateful for their patience.
+        </p>
         <p>When the average person thinks of programming, they often get the message that only smart math people can do it and that the only people who know it 
             are college graduates or prodigy children.
         </p>
@@ -116,8 +142,7 @@
             not to just sit there while i list off facts about syntax.
         </p>
         <p>insert the explanation interactive here, hopefully finish it in time so atm it is WIP</p>
-        <iframe frameborder="0" src="https://itch.io/embed-upload/10311640?color=ffffff" allowfullscreen="" width="640" height="380"><a href="https://furiousknight.itch.io/triangle-explanation">Play Triangle explanation on itch.io</a></iframe>
-        <p>Now didn't wasn't the claim boring dry topics can only be taught through passive learning? And yes thats true, but by using interactives, you can 
+        <!-- <iframe  frameborder="0" src="https://itch.io/embed-upload/10311640?color=ffffff" allowfullscreen="" width="640" height="380" name="searchFrame" ><a href="https://furiousknight.itch.io/triangle-explanation">Play Triangle explanation on itch.io</a></iframe>        <p>Now didn't wasn't the claim boring dry topics can only be taught through passive learning? And yes thats true, but by using interactives, you can  -->
             slowly sprinkle in passive learning topics throughout the process <em>tricking</em> the student into accidently learning the boring topic. In reality, programmers can 
             often accidently learn things like code orginaztion on accident while actively learning how to create a video game.
         </p>
@@ -182,7 +207,7 @@
         <p>Day 3 was a catastrophe, but because it was so horrible I learned a lot.</p>
         <p>I had a lot of ambitions for the final day, and a lot of experimental ideas that I thought would work but failed misserably. My ideas for the course
             were so experiemntal to the point where it's hard to put into words in this paper.
-            <br>Here is a summary of my ambitions for the final day
+            <br>Here is a summary of the ambitions for the final day
             <ol>
                 <li>Cover how hard or easy it can be to create games</li>
                 <li>Explain how easy it is to create games with the help of software</li>
@@ -190,10 +215,17 @@
                 <li>Inspire my peers to learn and create games on their own</li>
             </ol>
         </p>
-        <p> </p>
+        <p> At this point, I felt like I taught the most important things about programming. If I were to teach anything more
+            it would've been specific tools and tequniues that my peers would be better off learning through experimentation and googling.
+        </p>
+        <p> 
+            As it was mentioned before, complete begginers learn best through passive learning, but since my peers had basic knowledge the first assumption was that they could start coding using active learning. After all, active learning is more fun right?
+        </p>
+        <p>Here starts the decline towards failure. First, </p>
         <h1>Summary</h1>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <!-- solution is to just have people work on the game or to just start discussion, guh on paper this sounds like such a good plan, what went wrong -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
         <p>Summary of tips to teach programming
             <ol>
                 <li>Have breaks, this goes without saying but its proven to Help</li>
@@ -201,7 +233,7 @@
             </ol>
         </p>
         <!-- please fix upadates oh cmon man --> 
-        <h2 style="background-color:rgb(108, 116, 117); text-align: center;">: Works Cited</h2>
+        <h2 style="background-color:rgb(108, 116, 117); text-align: center;" >: Works Cited</h2>
         <p> 
             <b>Beilock, Sian L., and Daniel T. Willingham.</b> “Ask the Cognitive Scientist.” Math Anxiety: Can Teachers Help Students Reduce It?, vol. 38, no. American Educator, 2014, pp. 28-32. Math Anxiety: Can Teachers Help Students Reduce It? Ask the Cognitive Scientist, https://files.eric.ed.gov/fulltext/EJ1043398.pdf. Accessed 16 3 2024.
             <br><br>
